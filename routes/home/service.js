@@ -5,6 +5,7 @@ const user_info=require('../../models');
 const repository = require('./repository')
 
 
+
 function getShow(req, res) {
      
         var title='Welcome';
@@ -13,26 +14,9 @@ function getShow(req, res) {
                 `<h2>${title}</h2>${description}
                 `,
                 `<a href="/user_info/create">회원가입</a>
-                <a href="/home/login">로그인</a>`);
+                <a href="/user_info/login">로그인</a>`);
         res.end(template1);
 }
-
-function startLogin(req,res){
-        passport.serializeUser((user_info,done)=>{
-                done(null,user_info);
-        });
-           passport.deserializeUser((user_info,done)=>{
-                   done(null,user_info);
-           });
-           passport.use(new LocalStrategy({
-                   usernameField:'id',
-                   passwordField:'passwd',
-                   session:true,
-                   passReqToCallback:false,
-
-           },(id,passwo)))
-}
-
 
 exports.getShow = getShow
 
